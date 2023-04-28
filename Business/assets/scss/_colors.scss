@@ -1,0 +1,27 @@
+// Color Pallate Start
+$color_pick: (
+    "primary": $primary_color, 
+    "secondary": $secondary_color, 
+    "purple": $purpel_color, 
+    "red": $red_color, 
+    "yellow" : $yellow_color, 
+    "orange": $orange_color, 
+    "light_blue": $light_blue_color, 
+    "dark": $dark_color, 
+    "green": $green_color, 
+    "common": $common_color, 
+    "bg": $bg_color, 
+    "black": $black_color, 
+    "white": $white_color
+);
+    
+@each $color_name, $color_code in $color_pick {
+    .color_#{$color_name} {
+        color: $color_code;
+    }
+
+    .bg_color_#{$color_name} {
+        background: $color_code;
+    }
+}
+// Color Pallate end

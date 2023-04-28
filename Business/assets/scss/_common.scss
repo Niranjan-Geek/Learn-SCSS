@@ -1,0 +1,73 @@
+// Custom Classes Start
+.align_top {
+    align-items: flex-start
+}
+
+.align_center {
+    align-items: center
+}
+
+.align_bottom {
+    align-items: flex-end;
+}
+
+.justify_top {
+    justify-content: flex-start;
+}
+
+.justify_center {
+    justify-content: center;
+}
+
+.justify_end {
+    justify-content: flex-end;
+}
+
+.text_center {
+    text-align: center;
+}
+
+.section_pad {
+    position: relative;
+    padding: 100px 0;
+
+    @include media(max, 991px) {
+        padding: 80px 0;
+    }
+
+    @include media(max, 767px) {
+        padding: 60px 0;
+    }
+}
+
+.sec_btn {
+    width: 170px;
+    height: 50px;
+    background: $primary_color;
+    @include d_flex(inline-flex, center, center);
+    @include font(18px, 28px, $white_color, 500, $title_font);
+    border-radius: 70px;
+    box-shadow: 0 10px 40px rgba($color: $primary_color, $alpha: 0.2);
+    transition: 0.3s;
+
+    &.lg {
+        width: 270px;
+        height: 70px;
+    }
+    
+    &:hover {
+        color: $white_color;
+        background: $secondary_color;
+        box-shadow: 0 10px 40px rgba($color: $secondary_color, $alpha: 0.2);
+    }
+}
+
+.link {
+    @include font(16px, 25px, $primary_color, 500, $title_font);
+    text-transform: uppercase;
+
+    &:hover {
+        color: $secondary_color;
+    }
+}
+// Custom Classes End

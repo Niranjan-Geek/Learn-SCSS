@@ -1,0 +1,55 @@
+.site-header {
+    @include position(fixed, top, left);
+    width: 100%;
+    background: rgba($black-color, 0.5);
+    @include d_flex($flex: flex, $align: center, $justify: space-between);
+    padding: 10px 50px;
+    z-index: 100;
+}
+
+.logo {
+    width: 180px;
+    height: 80px;
+    @include d_flex($flex: flex, $align: center, $justify: flex-start);
+
+    a {
+        display: block;
+    }
+}
+
+.header-menu {
+    height: 80px;
+    @include d_flex($flex: inline-flex, $align: center, $justify: flex-end);
+    text-align: right;
+}
+
+.main-navigation {
+    display: inline-block;
+    position: relative;
+
+    ul {
+
+        li {
+            display: inline-block;
+            margin-left: 40px;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            a {
+                display: inline-block;
+                font-size: 16px;
+                color: $white-color;
+                text-transform: uppercase;
+                text-decoration: none;
+                font-weight: bold;
+                transition: 0.3s;
+
+                &:hover {
+                    color: $primary-color;
+                }
+            }
+        }
+    }
+}

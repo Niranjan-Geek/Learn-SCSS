@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+$font_weights : ("regular":400, "medium":500, "bold":700);
+$light_weights : ("thin":100, "lighter":200, "light":300);
+$merge : map-merge($map1: $font_weights, $map2: $light_weights);
+
+$map_remove : map-remove($map: $light_weights, $key: "thin");
+
+
+$body-font: 'Roboto', sans-serif;
+$title-font: 'Lobster', cursive;
+
+body, html {
+    @include common_font;
+    overflow-x: hidden;
+}
+
+.dark {
+    @include theme_mode(dark);
+}
+
+p {
+    @include common_font;
+    margin-bottom: 16px;
+    font-weight: map-get($map: $font_weights, $key: "regular");
+}
+
+a {
+    text-decoration: none;
+    color: $secondary-color;
+    transition: 0.3s;
+
+    &:hover {
+        color: $primary-color;
+    }
+}
+
+h1 {
+    @include title_font(120px, 1, $white-color, $title-font);
+    letter-spacing: 10px;
+    margin-bottom: 0;
+}
+
+h2 {
+    @include title_font(50px, 1, $primary-color, $title-font);
+    letter-spacing: 5px;
+    margin-bottom: 25px;
+}
+
+h3 {
+    @include title_font(22px, 1, $black-color, $title-font);
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.test {
+    font-weight: map-values($map: $merge);
+    font-weight: map-has-key($map: $light_weights, $key: "thin");
+    @include d_flex(flex, center, center) {
+        justify-content: flex-start;
+    };
+}
+
+.test2 {
+    font-weight: map-values($map: $light_weights);
+    padding: variable-exists($name: font-weights);
+    width: global-variable-exists($name: name);
+    font-size: mixin-exists($name: d_flex);
+    max-width: function-exists($name: col_0);
+    margin: type-of($value: 10px);
+    z-index: inspect($value: null);
+}

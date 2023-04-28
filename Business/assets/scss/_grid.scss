@@ -1,0 +1,39 @@
+.row {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: -15px;
+      margin-right: -15px  
+}
+
+.container, .row>* {
+    @include grid_pos;
+}
+
+// Custom Container Start
+$media_container: (0: 100%, 575px: 540px, 768px: 730px, 992px: 960px, 1200px : 1170px, 1440px: 1410px);
+
+@each $container_wp, $container_media in $media_container {
+    @media screen and (min-width: #{$container_wp}) {
+        .container {
+            width: #{$container_media};
+            display: block;
+            margin: auto;
+        }
+    }
+}
+// Custom Container End
+
+// Custom Grid Start
+$media_grid: ("xs": 0, "sm": 576px, "md": 768px, "lg": 992px, "xl" : 1200px, "xxl": 1440px);
+
+@each $name, $grid in $media_grid {
+    @media screen and (min-width: #{$grid}) {
+        @for $col from 1 through 12 {
+            .col-#{$name}-#{$col} {
+                width: (100%/12)*$col;
+            }
+        }
+        
+    }
+}
+// Custom Grid End

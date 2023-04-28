@@ -1,0 +1,266 @@
+/*Banner Start*/
+.main-banner {
+    position: relative;
+    padding: 180px 0 150px 0; 
+}
+
+.banner-content {
+    position: relative;
+
+    .sub_title {
+        color: $primary_color;
+    }
+
+    p {
+        width: 700px;
+        max-width: 100%;
+        @include font(22px, 32px, $secondary_color, 500, $body_font)
+    }
+}
+
+.banner-img {
+    width: 700px;
+    height: 600px;
+    position: relative;
+    @include d_flex(flex, center, center);
+
+    $bg_pos: 100px;
+
+    span {
+        display: inline-block;
+        width: 33.3333%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        border: 6px solid $white_color;
+
+        &:after {
+            content: '';
+            width: 105%;
+            height: 100px;
+            background: $white_color;
+            z-index: 1;
+        }
+
+        &:nth-child(odd):after {
+            @include position(absolute, bottom, left);
+        }
+        
+        &:nth-child(even):after {
+            @include position(absolute, top, left);
+        }
+    }
+}
+/*Banner End*/
+
+/*Achieve More Start*/
+.achieve {
+    position: relative;
+    background: $bg_color;
+    padding: 80px 0;
+}
+
+.achieve-content {
+    padding-right: 30px;
+}
+
+.achieve-box {
+    display: flex;
+    position: relative;
+
+    .icon {
+        width: 70px;
+        height: 70px;
+        @include d_flex(inline-flex, center, center);
+        flex: 0 0 auto;
+        border-radius: 50%;
+        box-shadow: $shadow;
+
+        img {
+            width: 40px;
+            height: auto;
+        }
+    }
+
+    .text {
+        position: relative;
+        padding: 0 50px 0 30px;
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+/*Achieve More End*/
+
+/*Service Start*/
+.service-title {
+    text-align: center;
+    margin-bottom: 50px;
+
+    .h2_title {
+        margin-bottom: 25px;
+    }
+}
+
+.service-box {
+    position: relative;
+    width: 100%;
+    padding: 50px;
+    background: transparent;
+    border: 1px solid rgba($common_color, 10%);
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.3s;
+
+    &:hover {
+        background: $white_color;
+        border-color: $white_color;
+        box-shadow: 0 10px 50px rgba($black_color, 5%);
+    }
+
+    .icon {
+        width: 100px;
+        height: 100px;
+        @include d_flex(inline-flex, center, center);
+        border-radius: 50%;
+        margin-bottom: 30px;
+
+        $icon_bg: 37%;
+        
+        &.bg_color_purple {
+            background: lighten($color: $purpel_color, $amount: $icon_bg);
+            svg
+                path {
+                fill: $purpel_color;
+            }
+        }
+
+        &.bg_color_red {
+            background: lighten($color: $red_color, $amount: $icon_bg);
+
+            svg
+                path {
+                fill: $red_color;
+            }
+        }
+
+        &.bg_color_yellow {
+            background: lighten($color: $yellow_color, $amount: $icon_bg);
+
+            svg
+                path {
+                fill: $yellow_color;
+            }
+        }
+    }
+
+    .h3_title {
+        margin-bottom: 10px;
+    }
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.partner-btn {
+    text-align: center;
+    margin-top: 40px;
+}
+/*Service End*/
+
+/*Schedule Start*/
+.schedule-img {
+    text-align: center;
+}
+
+.schedule-content {
+    position: relative;
+    padding-right: 70px;
+
+    .sub_title {
+        color: $green_color;
+    }
+
+    .h2_title {
+        margin-bottom: 20px;
+    }
+
+    .text {
+        margin-bottom: 30px;
+    }
+}
+/*Schedule End*/
+
+/*Future Support Start*/
+.future-content {
+    position: relative;
+    padding-right: 40px;
+
+    ul {
+        margin-bottom: 30px;
+
+        li {
+            display: block;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+
+            &:before {
+                content: '';
+                @include position(absolute, top, left);
+                top: 6px;
+                width: 12px;
+                height: 12px;
+                background: $purpel_color;
+                border-radius: 50%;
+            }
+        }
+    }
+}
+
+.future-list {
+    margin-bottom: -30px;
+}
+
+.future-box {
+    width: 100%;
+    padding: 30px;
+    border: 1px solid rgba($common_color, 10%);
+    border-radius: 10px;
+    margin-bottom: 30px;
+    transition: 0.3s;
+
+    &:hover {
+        background: $white_color;
+        border-color: $white_color;
+        box-shadow: 0 10px 40px rgba($black_color, 5%);
+    }
+
+    .icon {
+        margin-bottom: 15px;
+
+        &.purple svg path {
+            fill: $purpel_color;
+        }
+
+        &.yellow svg path {
+            fill: $yellow_color;
+        }
+
+        &.red svg path {
+            fill: $red_color
+        }
+
+        &.light_blue svg path {
+            fill: $light_blue_color;
+        }
+    }
+
+    p {
+        width: 280px;
+        max-width: 100%;
+    }
+}
+/*Future Support End*/

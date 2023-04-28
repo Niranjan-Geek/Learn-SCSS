@@ -1,0 +1,309 @@
+@import "variables";
+@import "mixin";
+@import "fonts";
+@import "header";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+}
+
+ul {
+    @include reset_list;
+}
+
+.back-img {
+    @include bg_img;
+}
+
+.container {
+    width: 1200px;
+    max-width: 100%;
+    padding: 0 15px;
+    display: block;
+    margin: auto;
+    
+    @include media(max, 1199px) {
+        width: 960px;
+    }
+    @include media(max, 991px) {
+        width: 720px;
+    }
+    @include media(max, 767px) {
+        width: 540px;
+    }
+    @include media(max, 575px) {
+        width: 100%;
+    }
+}
+
+.row {
+    @include d_flex(flex, start, flex-start);
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+@include col("12", 100%);
+
+@include col("6", 50%);
+
+@include col("4", 25%);
+
+@include col("3", 33.3333%);
+
+%col_padd {
+    position: relative;
+    padding: 0 15px;
+}
+
+.col_1 {
+    width: col_1($grid);
+    @extend %col_padd;
+}
+
+.col_2 {
+    width: col_2($grid);
+    @extend %col_padd;
+}
+
+.col_3 {
+    width: col_3($grid);
+    @extend %col_padd;
+}
+
+.col_4 {
+    width: col_4($grid);
+    @extend %col_padd;
+}
+
+.col_5 {
+    width: col_5($grid);
+    @extend %col_padd;
+}
+
+.col_6 {
+    width: col_6($grid);
+    @extend %col_padd;
+}
+
+.col_7 {
+    width: col_7($grid);
+    @extend %col_padd;
+}
+
+.col_8 {
+    width: col_8($grid);
+    @extend %col_padd;
+}
+
+.col_9 {
+    width: col_9($grid);
+    @extend %col_padd;
+}
+
+.col_10 {
+    width: col_10($grid);
+    @extend %col_padd;
+}
+
+.col_11 {
+    width: col_11($grid);
+    @extend %col_padd;
+}
+
+.col_12 {
+    width: col_12($grid);
+    @extend %col_padd;
+}
+
+@include res_media(xl_width) {
+    @include col_lg(xl,1,12);
+}
+
+@include res_media(lg_width) {
+    @include col_lg(lg,1,12);
+}
+
+@include res_media(md_width) {
+    @include col_lg(md,1,12);
+}
+
+@include res_media(sm_width) {
+    @include col_lg(sm,1,12);
+}
+
+@include res_media(xs_width) {
+    @include col_lg(xs,1,12);
+}
+
+.common-sec {
+    position: relative;
+    padding: 100px 0;
+}
+
+// Banner Start
+.main-banner {
+    width: 100%;
+    height: 100vh;
+    @include d_flex($flex: flex, $align: center, $justify: center);
+    background-attachment: fixed;
+
+    &:before {
+        content: "";
+        @include position(absolute, top, left);
+        width: 100%;
+        height: 100%;
+        background: $black-color;
+        opacity: 0.5;
+        z-index: 0;
+    }
+}
+
+.banner-content {
+    position: relative;
+    text-align: center;
+    z-index: 10;
+
+    h1 {
+        @include blink(0.8s) {
+            from {
+                color: $white-color;
+            }
+            to {
+                color: $primary-color;
+            }
+        }
+    }
+}
+// Banner End
+
+// About Us Start
+.about-content {
+    padding-top: 50px;
+    
+    p {
+        body.dark & {
+            color: $white-color;
+        }
+    }
+}
+
+.about-img {
+    width: 50vw;
+    height: 450px;
+}
+// About Us End
+
+// Services Start
+.title {
+    text-align: center;
+}
+
+.service-box {
+    width: 100%;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba($black-color, 0.1);
+    border-radius: 20px;
+
+    body.dark & {
+        background: $secondary-color;
+    }
+
+    @at-root {
+        .service-icon {
+            width: 100px;
+            height: 100px;
+            @include d_flex(flex, center, center);
+            padding: 20px;
+            box-shadow: 0 0 20px rgba($black-color, 0.1);
+            border-radius: 50%;
+            margin: 0 auto 20px auto;
+
+            body.dark & {
+                background: $white-color;
+            }
+        }
+    }
+
+    h3 {
+        body.dark & {
+            color: $white-color;
+        }
+    }
+
+    p {
+        margin-bottom: 20px;
+
+        body.dark & {
+            color: $white-color;
+        }
+    }
+
+    a {
+        width: 120px;
+        height: 46px;
+        @include d_flex(inline-flex, center, center);
+        background: $primary-color;
+        color: $white-color;
+        border-radius: 10px;
+        transition: 0.3s;
+
+        &:hover {
+            background: darken($primary-color, 20%);
+        }
+    }
+}
+// Services End
+
+// Responsive Start
+@include media(max, 1199px) {
+    .main-services {
+        .col_4 {
+            width: col_6($grid);
+        }
+    }
+}
+// Responsive End
+
+.theme-mode {
+    @include position(fixed, top, left);
+    top: 50%;
+    transform: translate(0,-50%);
+
+    p {
+        width: 150px;
+        height: 40px;
+        background: $black-color;
+        color: $white-color;
+        @include d_flex(flex, center, center);
+        transform: rotate(-90deg);
+        margin-left: -55px;
+        cursor: pointer;
+        transition: 0.3s;
+        box-shadow: 0 0 20px rgba($black-color, 0.1);
+        margin-bottom: 0;
+
+        &:hover {
+            background: lighten($color: $black-color, $amount: 20%);
+        }
+
+        body.dark & {
+            background: $white-color;
+            color: $primary-color;
+
+            &:hover {
+                background: $primary-color;
+                color: $white-color;
+            }
+        }
+    }
+}

@@ -1,0 +1,42 @@
+@mixin font($size, $line, $color, $weight, $family) {
+    font-size: $size;
+    line-height: $line;
+    color: $color;
+    font-weight: $weight;
+    font-family: $family;
+}
+
+@mixin d_flex($display, $justify, $align) {
+    display: $display;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin position($position, $top_bottom, $left_right) {
+    position: $position;
+    #{$top_bottom}: 0;
+    #{$left_right}: 0;
+}
+
+@mixin reset_list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+@mixin bg_img {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@mixin grid_pos {
+    position: relative;
+    padding: 0 15px;
+}
+
+@mixin media($min_max, $screen) {
+    @media screen and (#{$min_max}-width: #{$screen}) {
+        @content;
+    }
+}

@@ -1,0 +1,170 @@
+@mixin theme_mode($theme_mode) {
+    @if $theme_mode == dark {
+        background: $black-color;
+    }
+    @else {
+        background: $white-color;
+    }
+}
+
+@mixin common_font {
+    font-size: 16px;
+    line-height: 26px;
+    color: $common-color;
+    font-family: $body-font;
+}
+
+@mixin title_font ($size, $line, $color, $family) {
+    font-size: $size;
+    line-height: $line;
+    color: $color;
+    font-family: $family;
+}
+
+@mixin d_flex($flex, $align, $justify) {
+    display: $flex;
+    align-items: $align;
+    justify-content: $justify;
+    @content;
+}
+
+@mixin reset_list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+@mixin bg_img {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@mixin position($position, $top_bottom, $left_right) {
+    position: $position;
+    #{$top_bottom}: 0;
+    #{$left_right}: 0;
+}   
+
+@mixin blink ($duration) {
+    $name: blink-#{unique-id()};
+
+    @keyframes #{$name} {
+        @content;
+    }
+
+    animation-name: $name;
+    animation-duration: $duration;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@mixin col($col, $width) {
+    .col-#{$col} {
+        position: relative;
+        width: $width;
+        padding: 0 15px;
+    }
+}
+
+@mixin col_lg($size, $from, $to) {
+    @for $col_lg from $from through $to {
+        .col_#{$size}_#{$col_lg} {
+            width: (100%/$to) * $col_lg;
+            position: relative;
+            padding: 0 15px;
+        }
+    } 
+}
+
+@mixin media($min_max, $width){
+    @media screen and (#{$min_max}-width: $width) {
+        @content;
+    }
+}
+
+@mixin res_media($media) {
+    $xs_width: "(min-width: 0)";
+    $sm_width: "(min-width: 576px)";
+    $md_width: "(min-width: 768px)";
+    $lg_width: "(min-width: 992px)";
+    $xl_width: "(min-width: 1200px)";
+    
+    @if $media == xs_width {
+        @media screen and #{$xs_width} {
+            @content;
+        }
+    }
+    @else if $media == sm_width {
+        @media screen and #{$sm_width} {
+            @content;
+        }
+    }
+    @else if $media == md_width {
+        @media screen and #{$md_width} {
+            @content;
+        }
+    }
+    @else if $media == lg_width {
+        @media screen and #{$lg_width} {
+            @content;
+        }
+    }
+    @else if $media == xl_width {
+        @media screen and #{$xl_width} {
+            @content;
+        }
+    }
+}
+
+// $each_media: ("min-width":0, )
+
+// @each media_each("") {}
+
+@function col_1($width) {
+    @return ($width/12) * 1;
+}
+
+@function col_2($width) {
+    @return ($width/12) * 2;
+}
+
+@function col_3($width) {
+    @return ($width/12) * 3;
+}
+
+@function col_4($width) {
+    @return ($width/12) * 4;
+}
+
+@function col_5($width) {
+    @return ($width/12) * 5;
+}
+
+@function col_6($width) {
+    @return ($width/12) * 6;
+}
+
+@function col_7($width) {
+    @return ($width/12) * 7;
+}
+
+@function col_8($width) {
+    @return ($width/12) * 8;
+}
+
+@function col_9($width) {
+    @return ($width/12) * 9;
+}
+
+@function col_10($width) {
+    @return ($width/12) * 10;
+}
+
+@function col_11($width) {
+    @return ($width/12) * 11;
+}
+
+@function col_12($width) {
+    @return ($width/12) * 12;
+}

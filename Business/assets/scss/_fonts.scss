@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    @include font(16px, 26px, $common_color, 400, $body_font);
+    overflow-x: hidden;
+}
+
+p {
+    @include font(16px, 26px, $common_color, 400, $body_font);
+    margin-bottom: 16px;
+}
+
+.sub_title {
+    @include font(20px, 30px, $orange_color, 600, $title_font);
+    text-transform: uppercase;
+}
+
+.h1_title {
+    @include font(70px, 80px, $dark_color, 900, $title_font);
+    margin-bottom: 40px;
+
+    span {
+        color: $primary_color;
+    }
+}
+
+.h2_title {
+    @include font(45px, 55px, $dark_color, 700, $title_font);
+    margin-bottom: 25px;
+}
+
+.h3_title {
+    @include font(25px, 35px, $dark_color, 700, $title_font);
+    margin-bottom: 15px;
+}
+
+img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+}
+
+ul {
+    @include reset_list;
+}
+
+.back-img {
+    @include bg_img;
+}
+
+a {
+    color: $primary_color;
+    text-decoration: none;
+    transition: 0.3s;
+
+    &:hover {
+        color: $primary_color;
+    }
+}
